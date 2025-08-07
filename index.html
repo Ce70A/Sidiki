@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Plateforme biomédicale - Sidik</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="login">
+    <h2>🔐 Connexion requise</h2>
+    <label for="user">Nom d'utilisateur :</label>
+    <input type="text" id="user" placeholder="admin">
+    <label for="pass">Mot de passe :</label>
+    <input type="password" id="pass" placeholder="mot de passe">
+    <button onclick="checkLogin()">Se connecter</button>
+  </div>
+
+  <div id="protectedContent" style="display:none;">
+    <header>
+      <h1>Plateforme de gestion documentaire - Sidik</h1>
+    </header>
+
+    <div class="container">
+      <div class="sidebar">
+        <h2>Dossiers</h2>
+        <button onclick="showContent('general')">📁 Documents généraux</button>
+        <button onclick="showContent('em')">🗃️ Base de données des EM</button>
+      </div>
+
+      <div class="content">
+        <div id="general" class="hidden">
+          <h2>📁 Documents généraux</h2>
+          <ul>
+            <li>Plan de maintenance préventive</li>
+            <li>Politique de gestion des équipements</li>
+            <li>Procédures de traçabilité</li>
+          </ul>
+
+          <form>
+            <h3>➕ Ajouter un document général</h3>
+            <label for="docName">Nom du document :</label>
+            <input type="text" id="docName" required>
+
+            <label for="docType">Type de document :</label>
+            <input type="text" id="docType" required>
+
+            <label for="docDate">Date de création :</label>
+            <input type="date" id="docDate" required>
+
+            <button type="submit">Enregistrer</button>
+          </form>
+        </div>
+
+        <div id="em" class="hidden">
+          <h2>🗃️ Base de données des Équipements Médicaux</h2>
+          <div class="folder">
+            <h3>🔹 Maternité</h3>
+            <ul>
+              <li>Incubateur n°01 - Fiche technique</li>
+              <li>CTG - Historique de maintenance</li>
+            </ul>
+          </div>
+
+          <div class="folder">
+            <h3>🔹 Odontologie</h3>
+            <ul>
+              <li>Fauteuil dentaire - Dossier complet</li>
+            </ul>
+          </div>
+
+          <div class="folder">
+            <h3>🔹 Traumatologie</h3>
+            <ul>
+              <li>Table orthopédique - Dernière révision</li>
+            </ul>
+          </div>
+
+          <div class="folder">
+            <h3>🔹 Pédiatrie</h3>
+            <ul>
+              <li>Oxymètre - Rapport de panne</li>
+            </ul>
+          </div>
+
+          <form>
+            <h3>➕ Ajouter un équipement médical</h3>
+            <label for="equipName">Nom de l’équipement :</label>
+            <input type="text" id="equipName" required>
+
+            <label for="service">Service concerné :</label>
+            <select id="service" required>
+              <option value="">-- Choisir un service --</option>
+              <option value="Maternité">Maternité</option>
+              <option value="Odontologie">Odontologie</option>
+              <option value="Traumatologie">Traumatologie</option>
+              <option value="Pédiatrie">Pédiatrie</option>
+            </select>
+
+            <label for="equipDate">Date d’acquisition :</label>
+            <input type="date" id="equipDate" required>
+
+            <label for="fileType">Type de fichier :</label>
+            <input type="text" id="fileType" required>
+
+            <button type="submit">Enregistrer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
